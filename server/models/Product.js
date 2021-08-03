@@ -8,7 +8,7 @@ const productSchema = new Schema({
     trim: true,
   },
   category: {
-    type: Schema.Type.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "Category",
     required: true,
   },
@@ -17,13 +17,10 @@ const productSchema = new Schema({
     required: true,
     min: 1,
   },
-  productDetail: [
-    {
-      type: Schema.Type.ObjectId,
-      ref: "ProductDetail",
-      required: true,
-    },
-  ],
+  productDetail: {
+    type: Schema.Types.ObjectId,
+    ref: "ProductDetail",
+  },
 });
 
 const Product = mongoose.model("Product", productSchema);

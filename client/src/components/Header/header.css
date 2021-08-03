@@ -1,0 +1,17 @@
+ html{
+    overflow: hidden;
+    font-family: 'lato',sans-serif;
+}
+ 
+.header{
+    font-size: 18px;
+    color:#999898;
+    font-weight: 200;
+}
+.nav-items{
+    color:#555;
+}
+.main-nav{
+    font-size: 20px;
+    padding:20px;
+}

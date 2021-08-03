@@ -13,17 +13,39 @@ db.once("open", async () => {
   ]);
 
   console.log("categories seeded");
+  await ProductDetail.deleteMany();
+
+  const productDetail = await ProductDetail.insertMany([
+    {
+      quantity: 500,
+      image: "cookie-tin.jpg",
+      description:
+        "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    },
+    {
+      quantity: 100,
+      image: "sweater.jpg",
+      description:
+        "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+    },
+  ]);
+
+  console.log("product detail");
 
   await Product.deleteMany();
 
   const products = await Product.insertMany([
     {
-      name: "Tin of Cookies",
+      name: "T-shirt",
       category: categories[0]._id,
       price: 2.99,
-      productDetail:[
-        
-      ]
+      productDetail: productDetail[0]._id,
+    },
+    {
+      name: "sweat",
+      category: categories[1]._id,
+      price: 4,
+      productDetail: productDetail[1]._id,
     },
   ]);
 
@@ -48,14 +70,6 @@ db.once("open", async () => {
     lastName: "admin",
     email: "admin@gmail.com",
     password: "admin",
-  });
-  await ProductDetail.deleteMany();
-  
-  await ProductDetail.create({
-    quantity: 500,
-    image: "cookie-tin.jpg",
-    description:
-      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
   });
 
   console.log("users seeded");

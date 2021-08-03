@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose.Mongoose;
+const { Schema } = mongoose;
 
 const orderSchema = new Schema({
   purchaseDate: {
@@ -8,7 +8,7 @@ const orderSchema = new Schema({
   },
   product: [
     {
-      type: Schema.Type.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Product",
       required: true,
     },
